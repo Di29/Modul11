@@ -111,14 +111,18 @@ namespace Modul11
 
                     Console.WriteLine($"Средняя зарплата всех клерков равна: {employee.AverageSalaryOfClerc(employees)}");
 
-                    Console.WriteLine(Array.Sort(employees, new Comparison<Employee>((a, b) => a.firstName.CompareTo(b.firstName))));
+                    Array.Sort(employees, new Comparison<Employee>((a, b) => a.firstName.CompareTo(b.firstName)));
 
-                    Employee[] managers;
-                    int countOfManagers = 0;
+                 
+          
+                    //Employee[] managers;
+                   // int countOfManagers = 0;
                     foreach (var employe in employees)
                     {
                         if (employe.position == Positions.Manager && employe.salary > employee.AverageSalaryOfClerc(employees))
                         {
+
+                            employe.ShowInfo();
                             //countOfManagers++;
                             //managers = new Employee[countOfManagers];
                             //for(int i = 0; i < managers.Length; i++)

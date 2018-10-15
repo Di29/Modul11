@@ -5,3 +5,10 @@ C:\Users\jentl\source\repos\Modul11\Modul11\obj\Debug\Modul11.csprojAssemblyRefe
 C:\Users\jentl\source\repos\Modul11\Modul11\obj\Debug\Modul11.csproj.CoreCompileInputs.cache
 C:\Users\jentl\source\repos\Modul11\Modul11\obj\Debug\Modul11.exe
 C:\Users\jentl\source\repos\Modul11\Modul11\obj\Debug\Modul11.pdb
+C:\Users\УринбасаровД\Documents\Modul11\Modul11\bin\Debug\Modul11.exe.config
+C:\Users\УринбасаровД\Documents\Modul11\Modul11\bin\Debug\Modul11.exe
+C:\Users\УринбасаровД\Documents\Modul11\Modul11\bin\Debug\Modul11.pdb
+C:\Users\УринбасаровД\Documents\Modul11\Modul11\obj\Debug\Modul11.csprojAssemblyReference.cache
+C:\Users\УринбасаровД\Documents\Modul11\Modul11\obj\Debug\Modul11.csproj.CoreCompileInputs.cache
+C:\Users\УринбасаровД\Documents\Modul11\Modul11\obj\Debug\Modul11.exe
+C:\Users\УринбасаровД\Documents\Modul11\Modul11\obj\Debug\Modul11.pdb
