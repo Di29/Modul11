@@ -8,20 +8,20 @@ namespace Modul11
 {
     public struct Employee
     {
-        public string firstName;
-        public string lastName;
-        public int age;
-        public int salary;
-        public DateTime dateOfRecruit;
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int Age { get; set; }
+        public int Salary { get; set; }
+        public DateTime DateOfRecruit { get; set; }
         public Positions position;
 
         public void ShowInfo() //Так как это не класс, думаю разрешено использовать подобные методы внутри структур. По крайней мере, в Метаните именно так. 
         {
-            Console.WriteLine($"ФИО сотрудника: {firstName} {lastName}\n" +
-                $"Возраст: {age}\n" +
+            Console.WriteLine($"ФИО сотрудника: {FirstName} {LastName}\n" +
+                $"Возраст: {Age}\n" +
                 $"Должность: {position}\n" +
-                $"Зарплата: {salary}\n" +
-                $"Дата приема на работу: {dateOfRecruit}\n\n");
+                $"Зарплата: {Salary}\n" +
+                $"Дата приема на работу: {DateOfRecruit}\n\n");
         }
 
         public double AverageSalaryOfClerc(Employee[] employees)
@@ -32,7 +32,7 @@ namespace Modul11
             {
                 if(employee.position == Positions.Clerk)
                 {
-                    total += employee.salary;
+                    total += employee.Salary;
                     countOfClerc++;
                 }
             }

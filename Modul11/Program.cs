@@ -33,24 +33,24 @@ namespace Modul11
                     Console.WriteLine($"Количество сотрудников равна: {count}");
                     Employee[] employees = new Employee[count+1];
                     Employee employee = new Employee();
-                    for(int i=0; i<employees.Length; i++)
+                    for(int i=1; i<employees.Length; i++)
                     {
                         Console.WriteLine($"\nВведите имя {i} сотрудника: ");
-                        employees[i].lastName = Console.ReadLine();
+                        employees[i].LastName = Console.ReadLine();
 
                         Console.WriteLine($"Введите фамилию {i} сотрудника: ");
-                        employees[i].firstName = Console.ReadLine();
+                        employees[i].FirstName = Console.ReadLine();
 
                         Console.WriteLine($"Введите возраст {i} сотрудника: ");
                         string ageText = Console.ReadLine();
                         if(int.TryParse(ageText, out age))
                         {
-                            employees[i].age = age;
+                            employees[i].Age = age;
                         }
                         else
                         {
                             Console.WriteLine("Не корректный ввод. Возраст по умолчанию 20");
-                            employees[i].age = defaultAge;
+                            employees[i].Age = defaultAge;
                         }
                         
                         Console.WriteLine($"\nВыберите должность {i} сотрудника: ");
@@ -81,66 +81,77 @@ namespace Modul11
                         if(!int.TryParse(salaryText, out salary))
                         {
                             Console.WriteLine("Не корректный ввод! Зарплата сотрудника по умолчанию 70000");
-                            employees[i].salary = defaultSalary;
+                            employees[i].Salary = defaultSalary;
                         }
                         else
                         {
-                            employees[i].salary = salary;
+                            employees[i].Salary = salary;
                         }
 
                         Console.WriteLine($"\nВведите дату приема {i} сотрудника в формате:"+" {0:d}", DateTime.Today);
                         if(!DateTime.TryParse(Console.ReadLine(), out dateTimeOut))
                         {
                             Console.WriteLine("Не корректный ввод! По умолчанию дата приема - текущая дата");
-                            employees[i].dateOfRecruit = DateTime.Today;
+                            employees[i].DateOfRecruit = DateTime.Today;
                         }
                         else
                         {
-                            employees[i].dateOfRecruit = dateTimeOut;
+                            employees[i].DateOfRecruit = dateTimeOut;
                         }
                     }
                     Console.WriteLine("Press any key...");
                     Console.ReadLine();
                     Console.Clear();
 
+                    Array.Sort(employees, new Comparison<Employee>((a, b) => a.FirstName.CompareTo(b.FirstName)));
+
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.WriteLine("Список всех сотрудников");
+                    Console.ResetColor();
                     for(int i=1; i < employees.Length; i++)
                     {
                         employees[i].ShowInfo();
                     }
 
-
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine($"Средняя зарплата всех клерков равна: {employee.AverageSalaryOfClerc(employees)}");
+                    Console.ResetColor();
 
-                    Array.Sort(employees, new Comparison<Employee>((a, b) => a.firstName.CompareTo(b.firstName)));
-
-                 
-          
-                    //Employee[] managers;
-                   // int countOfManagers = 0;
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.WriteLine("\nСписок менеджеров, зарплата которых больше чем средняя зарплата всех клерков");
+                    Console.ResetColor();
                     foreach (var employe in employees)
                     {
-                        if (employe.position == Positions.Manager && employe.salary > employee.AverageSalaryOfClerc(employees))
+                        if (employe.position == Positions.Manager && employe.Salary > employee.AverageSalaryOfClerc(employees))
                         {
-
+                            Array.Sort(employees, new Comparison<Employee>((a, b) => a.FirstName.CompareTo(b.FirstName)));
                             employe.ShowInfo();
-                            //countOfManagers++;
-                            //managers = new Employee[countOfManagers];
-                            //for(int i = 0; i < managers.Length; i++)
-                            //{
-                            //    managers[i] = employe;
-                            //}
-                            /*foreach(Employee manager in employees.OrderBy(mng => mng.firstName))
-                            {
-                                Console.WriteLine(manager.firstName);
-                                //System.Diagnostics.Trace.WriteLine(manager.firstName);
-                            }*/
-
-                            
-                        }
-                        
+                             
+                        }                     
                     }
 
-                    
+                    foreach (var employe in employees)
+                    {
+                        Employee boss = new Employee();
+                        if (employe.position == Positions.Boss)
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            Console.WriteLine("\nBoss");
+                            Console.ResetColor();
+                            employe.ShowInfo();
+                            boss = employe;
+                        }
+
+                        if (employe.position != Positions.Boss && employe.DateOfRecruit > boss.DateOfRecruit)
+                        {
+                            Array.Sort(employees, new Comparison<Employee>((a, b) => a.FirstName.CompareTo(b.FirstName)));
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            Console.WriteLine("Список сотрудников, принятых на работу после босса");
+                            Console.ResetColor();
+                            employe.ShowInfo();
+
+                        }
+                    }
                 }
             }
             Console.ReadLine();          
