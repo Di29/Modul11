@@ -13,13 +13,13 @@ namespace Modul11
         public int Age { get; set; }
         public int Salary { get; set; }
         public DateTime DateOfRecruit { get; set; }
-        public Positions position;
+        public Positions Position { get; set; }
 
         public void ShowInfo() //Так как это не класс, думаю разрешено использовать подобные методы внутри структур. По крайней мере, в Метаните именно так. 
         {
             Console.WriteLine($"ФИО сотрудника: {FirstName} {LastName}\n" +
                 $"Возраст: {Age}\n" +
-                $"Должность: {position}\n" +
+                $"Должность: {Position}\n" +
                 $"Зарплата: {Salary}\n" +
                 $"Дата приема на работу: {DateOfRecruit}\n\n");
         }
@@ -30,7 +30,7 @@ namespace Modul11
             int countOfClerc = 0;
             foreach(var employee in employees)
             {
-                if(employee.position == Positions.Clerk)
+                if(employee.Position == Positions.Clerk)
                 {
                     total += employee.Salary;
                     countOfClerc++;
@@ -38,8 +38,5 @@ namespace Modul11
             }
             return total / countOfClerc;
         }
-
-       
-
     }
 }

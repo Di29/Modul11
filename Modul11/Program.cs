@@ -33,6 +33,7 @@ namespace Modul11
                     Console.WriteLine($"Количество сотрудников равна: {count}");
                     Employee[] employees = new Employee[count+1];
                     Employee employee = new Employee();
+
                     for(int i=1; i<employees.Length; i++)
                     {
                         Console.WriteLine($"\nВведите имя {i} сотрудника: ");
@@ -65,13 +66,13 @@ namespace Modul11
                             switch (input)
                             {
                                 case 1:
-                                    employees[i].position = Positions.Clerk;
+                                    employees[i].Position = Positions.Clerk;
                                     break;
                                 case 2:
-                                    employees[i].position = Positions.Manager;
+                                    employees[i].Position = Positions.Manager;
                                     break;
                                 case 3:
-                                    employees[i].position = Positions.Boss;
+                                    employees[i].Position = Positions.Boss;
                                     break;
                             }
                         }
@@ -122,7 +123,7 @@ namespace Modul11
                     Console.ResetColor();
                     foreach (var employe in employees)
                     {
-                        if (employe.position == Positions.Manager && employe.Salary > employee.AverageSalaryOfClerc(employees))
+                        if (employe.Position == Positions.Manager && employe.Salary > employee.AverageSalaryOfClerc(employees))
                         {
                             Array.Sort(employees, new Comparison<Employee>((a, b) => a.FirstName.CompareTo(b.FirstName)));
                             employe.ShowInfo();
@@ -130,10 +131,13 @@ namespace Modul11
                         }                     
                     }
 
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.WriteLine("Список сотрудников, принятых на работу после босса");
+                    Console.ResetColor();
                     foreach (var employe in employees)
                     {
                         Employee boss = new Employee();
-                        if (employe.position == Positions.Boss)
+                        if (employe.Position == Positions.Boss)
                         {
                             Console.ForegroundColor = ConsoleColor.DarkGreen;
                             Console.WriteLine("\nBoss");
@@ -142,14 +146,10 @@ namespace Modul11
                             boss = employe;
                         }
 
-                        if (employe.position != Positions.Boss && employe.DateOfRecruit > boss.DateOfRecruit)
+                        if (employe.Position != Positions.Boss && employe.DateOfRecruit > boss.DateOfRecruit)
                         {
                             Array.Sort(employees, new Comparison<Employee>((a, b) => a.FirstName.CompareTo(b.FirstName)));
-                            Console.ForegroundColor = ConsoleColor.DarkGreen;
-                            Console.WriteLine("Список сотрудников, принятых на работу после босса");
-                            Console.ResetColor();
                             employe.ShowInfo();
-
                         }
                     }
                 }

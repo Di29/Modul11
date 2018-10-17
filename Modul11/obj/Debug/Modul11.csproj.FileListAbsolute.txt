@@ -12,3 +12,10 @@ C:\Users\УринбасаровД\Documents\Modul11\Modul11\obj\Debug\Modul11.cs
 C:\Users\УринбасаровД\Documents\Modul11\Modul11\obj\Debug\Modul11.csproj.CoreCompileInputs.cache
 C:\Users\УринбасаровД\Documents\Modul11\Modul11\obj\Debug\Modul11.exe
 C:\Users\УринбасаровД\Documents\Modul11\Modul11\obj\Debug\Modul11.pdb
+C:\Users\jentl\OneDrive\Документы\Modul11\Modul11\bin\Debug\Modul11.exe.config
+C:\Users\jentl\OneDrive\Документы\Modul11\Modul11\bin\Debug\Modul11.exe
+C:\Users\jentl\OneDrive\Документы\Modul11\Modul11\bin\Debug\Modul11.pdb
+C:\Users\jentl\OneDrive\Документы\Modul11\Modul11\obj\Debug\Modul11.csprojAssemblyReference.cache
+C:\Users\jentl\OneDrive\Документы\Modul11\Modul11\obj\Debug\Modul11.csproj.CoreCompileInputs.cache
+C:\Users\jentl\OneDrive\Документы\Modul11\Modul11\obj\Debug\Modul11.exe
+C:\Users\jentl\OneDrive\Документы\Modul11\Modul11\obj\Debug\Modul11.pdb
